@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		hh
+		<script src="/socket.io/socket.io.js"></script>
+		<script>
+      // 连接socket服务
+			var socket = io('http://localhost:3000')
+
+      // 接收服务器返回的数据
+      // socket.on('send',data=>{
+      //   console.log(data);
+      // })
+      
+      // 浏览器发送数据
+      // 参数一：事件名：任意
+      // 参数二：获取到的数据
+      socket.emit('hello',{name:'打算'})  
+
+      // 浏览器接收数据
+      socket.on('send',function(data){
+        console.log(data);
+      })
+		</script>
+	</body>
+</html>
